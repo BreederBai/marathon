@@ -99,13 +99,15 @@ class Main:
 
     def run(self):
         print ('run() start')
+        step = 0
         data = {}
         #data['mac'] = self.__mac;
         while True:
             data['data'] = self.__readSerialData()
             self.__sendData(data)
             time.sleep(self.__cfg['send']['delay'])
-            print ('I am alive')
+            print ('I am alive %d' %step)
+            step = step + 1
 
     def __writeLog(self,log):
         if self.__cfg['log']['enable'] == '1':
